@@ -1,2 +1,0 @@
-# ControlPanel-Installer
-ControlPanel-Installer
