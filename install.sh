@@ -562,7 +562,7 @@ print "Installing dependencies for Debian ${OS_VER}"
 # MariaDB need dirmngr
 apt-get install -y dirmngr
 
-# install PHP 8.0 using sury's repo
+# install PHP 8.1 using sury's repo
 apt-get install -y ca-certificates apt-transport-https lsb-release
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
@@ -590,7 +590,7 @@ if [ "$OS_VER_MAJOR" == "7" ]; then
     # Install MariaDB
     curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
 
-    # Add remi repo (php8.0)
+    # Add remi repo (php8.1)
     yum install -y epel-release http://rpms.remirepo.net/enterprise/remi-release-7.rpm
     yum install -y yum-utils
     yum-config-manager -y --disable remi-php54
@@ -603,10 +603,9 @@ if [ "$OS_VER_MAJOR" == "7" ]; then
     # SELinux tools
     yum install -y policycoreutils selinux-policy selinux-policy-targeted setroubleshoot-server setools setools-console mcstrans
     
-    # Add remi repo (php8.0)
-    yum install -y epel-release http://rpms.remirepo.net/enterprise/remi-release-8.rpm
-    yum module enable -y php:remi-8.0
-
+    # Add remi repo (php8.1)
+    yum install -y epel-release http://rpms.remirepo.net/enterprise/remi-release-9.1.rpm
+    yum module enable -y php:remi-8.1
     # Install MariaDB
     yum install -y mariadb mariadb-server
 
